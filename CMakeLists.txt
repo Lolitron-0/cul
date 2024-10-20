@@ -8,4 +8,4 @@ set(CMAKE_CXX_EXTENSIONS OFF)
 
 add_library(${PROJECT_NAME} INTERFACE include/cul/cul.hpp)
 
-target_include_directories(${PROJECT_NAME} PUBLIC include)
+target_include_directories(${PROJECT_NAME} INTERFACE include)
