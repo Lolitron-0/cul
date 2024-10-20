@@ -1,2 +1,2 @@
 # cul
-C++ utilities library
+Some utilities written or found by me.
