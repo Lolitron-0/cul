@@ -113,7 +113,7 @@ struct ForEach<TypeList<>, StaticFunctor>
 {
 public:
     template <class... TArgs>
-    static void Iterate(auto&&... args)
+    static void Iterate(auto&&... /* args */)
     {
     }
 };
@@ -151,7 +151,7 @@ struct ForEachTemplate<TypeList<>, StaticFunctor>
 {
 public:
     template <class... TArgs>
-    static void Iterate(auto&&... args)
+    static void Iterate(auto&&... /* args */)
     {
     }
 };

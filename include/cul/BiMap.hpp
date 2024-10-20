@@ -6,6 +6,7 @@
 #include <optional>
 #include <string_view>
 #include <type_traits>
+#include <cstdint>
 
 namespace cul
 {
@@ -23,7 +24,7 @@ constexpr bool EqualIgnoreCaseLowercase(std::string_view lowercase,
                                         std::string_view other) noexcept
 {
     const auto size{ lowercase.size() };
-    for (int32_t i{ 0 }; i < size; i++)
+    for (int32_t i{ 0 }; i < static_cast<int32_t>(size); i++)
     {
         const auto lowercaseChar{ lowercase[i] };
         if (lowercaseChar != other[i])
@@ -177,7 +178,7 @@ public:
     {
     }
 
-    constexpr SwitchBySecondIgnoreCase& Case(First first,
+    constexpr SwitchBySecondIgnoreCase& Case(First /* first */,
                                              std::string_view second) noexcept
     {
         // clang-format off
