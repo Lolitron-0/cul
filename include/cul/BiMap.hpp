@@ -218,8 +218,8 @@ public:
     {
     }
 
-    using First = TypesPair::first_type;
-    using Second = TypesPair::second_type;
+    using First = typename TypesPair::first_type;
+    using Second = typename TypesPair::second_type;
 
     constexpr std::optional<Second> FindByFirst(First value) const noexcept
     {

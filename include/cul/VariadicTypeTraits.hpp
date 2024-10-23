@@ -1,7 +1,6 @@
-namespace cul
-{
 
-namespace variadic_tt
+
+namespace cul::variadic_tt
 {
 
 template <template <class, class> class BinPred, class... Ts>
@@ -27,7 +26,7 @@ struct All<BinPred>
 };
 
 template <template <class, class> class BinPred, class... Ts>
-using All_v = All<BinPred, Ts...>::value;
+constexpr bool All_v = All<BinPred, Ts...>::value;
 
 template <template <class, class> class BinPred, class... Ts>
 struct Exist;
@@ -52,8 +51,8 @@ struct Exist<BinPred>
 };
 
 template <template <class, class> class BinPred, class... Ts>
-using Exist_v = Exist<BinPred, Ts...>::value;
+constexpr bool Exist_v = Exist<BinPred, Ts...>::value;
 
-} // namespace variadic_tt
+} // namespace cul::variadic_tt
 
-} // namespace cul
+
