@@ -2,6 +2,7 @@
 
 #include <cassert>
 #include <csignal>
+#include <stdexcept>
 #include <type_traits>
 namespace cul
 {
@@ -20,6 +21,12 @@ struct CreateUsingNew final
     {
         delete ptr;
     }
+};
+
+class SingletonError : std::runtime_error{
+public:
+    inline explicit SingletonError(const std::string& what) :
+        std::runtime_error(what){}
 };
 
 template <class T, template <class> class CreationPolicy = CreateUsingNew>
@@ -44,7 +51,7 @@ protected:
         // TODO: assertions
         if (SingletonMixin::s_Instance)
         {
-            raise(SIGTRAP);
+          throw SingletonError("Singleton already initialized");
         }
         SingletonMixin::s_Instance = static_cast<T*>(this);
     }
